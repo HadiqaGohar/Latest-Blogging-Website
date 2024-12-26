@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.9.6",
+    "@portabletext/react": "^3.2.0",
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^6.24.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.68.3",
     "next": "^14.2.21",
