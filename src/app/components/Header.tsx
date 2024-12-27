@@ -67,7 +67,7 @@ function Header() {
           </button> */}
            {/* comment */}
           <button
-            className=" text-white font-black hover:border hover:px-4 hover:py-2 rounded-full "
+            className=" text-white font-black rounded-full "
             aria-label="Sign Up"
           >
             <SignedOut>
