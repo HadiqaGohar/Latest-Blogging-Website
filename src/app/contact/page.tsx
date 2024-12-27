@@ -85,7 +85,7 @@ function Contact() {
   return (
     <div>
       <Header />
-      <section className="max-w-screen-lg mx-auto p-8 my-16 relative"> {/* Added relative positioning here */}
+      <section className="max-w-screen-lg mx-auto p-8 my-16 relative">
         {/* Header Section */}
         <div className="text-center mb-8">
           <h4 className="text-lg font-extrabold mb-4 text-gray-600 uppercase">{data.sectionTitle}</h4>
@@ -94,9 +94,9 @@ function Contact() {
         </div>
 
         <div className="flex justify-end w-full max-w-screen-2xl mx-auto">
-        <div className="bg-[#00e785] rounded-l-full w-[200px] md:w-[500px]  h-[15px] md:h-[23px]" />
-        <div className="bg-gray-400 w-[100px] md:w-[100px] md:mr-0 h-[15px] md:h-[23px]" />
-      </div>
+          <div className="bg-[#00e785] rounded-l-full w-[200px] md:w-[500px]  h-[15px] md:h-[23px]" />
+          <div className="bg-gray-400 w-[100px] md:w-[100px] md:mr-0 h-[15px] md:h-[23px]" />
+        </div>
 
         {/* Info Section */}
         <div className="relative flex flex-col md:flex-row bg-gray-300 p-8 py-10 gap-8">
@@ -120,7 +120,7 @@ function Contact() {
 
         {/* Decorative Image */}
         {data.decorativeImage && (
-          <div className="absolute -mt-60 -ml-6 flex z-10"> {/* Added z-10 to ensure the image is above other content */}
+          <div className="absolute -mt-60 -ml-6 flex z-10">
             <Image
               src={data.decorativeImage.asset.url}
               alt="Decorative Shape"
@@ -134,13 +134,20 @@ function Contact() {
 
         {/* Contact Form */}
         <div className="mt-16">
-          <form className="space-y-4">
-            
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            className="space-y-4"
+          >
+            {/* Hidden input for access_key */}
+            <input type="hidden" name="access_key" value="671277a9-3056-46df-ae88-682920d99420" />
+
             <div>
               <label htmlFor="fullName" className="block text-gray-700">Full Name</label>
               <input
                 type="text"
                 id="fullName"
+                name="fullName"
                 placeholder={data.contactForm.fullNamePlaceholder}
                 className="w-full p-2 py-4 border border-gray-300 rounded"
                 required
@@ -152,6 +159,7 @@ function Contact() {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder={data.contactForm.emailPlaceholder}
                 className="w-full p-2 py-4 border border-gray-300 rounded"
                 required
@@ -162,6 +170,7 @@ function Contact() {
               <label htmlFor="query" className="block text-gray-700">Query Related</label>
               <select
                 id="query"
+                name="query"
                 className="w-full p-2 py-4 border border-gray-300 rounded"
                 required
               >
@@ -176,6 +185,7 @@ function Contact() {
               <label htmlFor="message" className="block text-gray-700">Message</label>
               <textarea
                 id="message"
+                name="message"
                 placeholder={data.contactForm.messagePlaceholder}
                 className="w-full p-2 border border-gray-300 rounded"
                 rows={4}
