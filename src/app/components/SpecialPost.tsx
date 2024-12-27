@@ -64,7 +64,7 @@ const SpecialPost = () => {
               backgroundImage: `url(${backgroundImageUrl})`,
             }}
           ></div>
-
+ {/* comment */}
           {/* Text Section */}
           <div className="absolute bg-white bg-opacity-90 p-8 rounded-lg shadow-lg lg:w-1/3 lg:h-auto lg:ml-8 transform lg:transform-none top-1/2 left-1/2 lg:top-auto lg:left-auto -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:translate-y-0">
             <h5 className="text-sm md:text-xl font-semibold text-gray-700">{postData.subheading}</h5>

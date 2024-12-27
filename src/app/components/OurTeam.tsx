@@ -71,6 +71,7 @@ const OurTeam: React.FC = () => {
           />
         </div>
       </div>
+       {/* comment */}
     </div>
   );
 };

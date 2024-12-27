@@ -45,6 +45,7 @@ function Logos() {
             <FaChartLine className="text-4xl md:text-5xl text-teal-500 mb-2" />
             <h2 className="text-lg font-medium text-gray-800">Analytics</h2>
           </div>
+           {/* comment */}
         </div>
       </div>
     </div>

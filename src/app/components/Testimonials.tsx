@@ -61,6 +61,7 @@ function Testimonials() {
 
   return (
     <div className="bg-white py-16">
+       {/* comment */}
       <div className="flex justify-end w-full max-w-screen-xl mx-auto">
         <div className="bg-[#00e785] rounded-l-full w-[200px] md:w-[843px] h-[15px] md:h-[23px]"></div>
         <div className="bg-gray-400 w-[100px] md:w-[282px] mr-4 md:mr-0 h-[15px] md:h-[23px]"></div>

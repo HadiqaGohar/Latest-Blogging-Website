@@ -37,6 +37,7 @@ const JoinOurTeam: React.FC = () => {
 
   return (
     <div className="bg-gray-50 font-sans py-16">
+       {/* comment */}
       <div className="w-full max-w-md mx-auto text-center px-6">
         <h2 className="text-3xl font-bold text-gray-800">
           {content.heading}

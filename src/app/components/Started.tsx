@@ -68,7 +68,7 @@ const Started: React.FC = () => {
           />
         </div>
       </div>
-
+ {/* comment */}
       {/* Content Section */}
       <div className="lg:w-1/2">
         <h2 className="text-3xl font-bold text-gray-800 mb-4 mt-24">{startedData.sectionTitle}</h2>

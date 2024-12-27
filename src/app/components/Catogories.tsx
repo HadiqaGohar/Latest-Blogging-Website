@@ -11,6 +11,7 @@ type Category = {
   icon: string;
 };
 
+
 const Categories = () => {
   const [categories, setCategories] = useState<Category[]>([]); // Specify the type for categories
 
@@ -26,8 +27,10 @@ const Categories = () => {
   }, []);
 
   return (
+    
     <div className="w-full py-16 font-sans bg-white">
       {/* Section Heading */}
+       {/* comment */}
       <div className="text-center mb-8">
         <h2 className="text-3xl font-semibold text-gray-700">Choose A Category</h2>
       </div>

@@ -35,6 +35,7 @@ const posts = [
 
 const AllPost = () => {
     // This code assumes static display and will show all posts at once
+     {/* comment */}
     return (
         <div>
             <div className="w-full max-w-screen-2xl mx-auto px-6 py-12">

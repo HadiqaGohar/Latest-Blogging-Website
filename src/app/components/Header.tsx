@@ -1,4 +1,5 @@
 'use client'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaBlog, FaBars, FaTimes } from 'react-icons/fa';
@@ -26,9 +27,8 @@ function Header() {
 
         {/* Navigation Links */}
         <div
-          className={`lg:flex lg:gap-6 lg:text-lg ${
-            isMenuOpen ? "block" : "hidden"
-          } absolute lg:relative top-16 left-0 lg:top-auto lg:left-auto w-full lg:w-auto bg-[#050c11] lg:bg-transparent p-4 lg:p-0 z-50`}
+          className={`lg:flex lg:gap-6 lg:text-lg ${isMenuOpen ? "block" : "hidden"
+            } absolute lg:relative top-16 left-0 lg:top-auto lg:left-auto w-full lg:w-auto bg-[#050c11] lg:bg-transparent p-4 lg:p-0 z-50`}
         >
           <ul className="flex flex-col lg:flex-row gap-4 lg:gap-6">
             <li>
@@ -56,23 +56,29 @@ function Header() {
 
         {/* Login and Signup Buttons */}
         <div
-          className={`lg:flex gap-4 ${
-            isMenuOpen ? "block" : "hidden"
-          } absolute lg:relative top-[calc(100%+1rem)] left-0 lg:top-auto lg:left-auto w-full lg:w-auto bg-[#050c11] lg:bg-transparent p-4 lg:p-0 z-50`}
+          className={`lg:flex gap-4 ${isMenuOpen ? "block" : "hidden"
+            } absolute lg:relative top-[calc(100%+1rem)] left-0 lg:top-auto lg:left-auto w-full lg:w-auto bg-[#050c11] lg:bg-transparent p-4 lg:p-0 z-50`}
         >
-          <button
+          {/* <button
             className="bg-[#00e785] text-black px-4 py-2 rounded-full hover:bg-[#00c66d] focus:outline-none"
             aria-label="Login"
           >
             Login
-          </button>
+          </button> */}
+           {/* comment */}
           <button
-            className="bg-[#00e785] text-black px-4 py-2 rounded-full hover:bg-[#00c66d] focus:outline-none"
+            className=" text-white font-black hover:border hover:px-4 hover:py-2 rounded-full "
             aria-label="Sign Up"
           >
-            Sign Up
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </button>
         </div>
+        {/* comment */}
       </div>
     </div>
   );

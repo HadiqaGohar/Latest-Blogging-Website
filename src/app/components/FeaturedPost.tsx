@@ -58,6 +58,7 @@ const FeaturedPost = () => {
         <div className="bg-white px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-wrap w-full justify-around mx-auto max-w-screen-2xl gap-8">
                 {/* Featured Post Section */}
+                 {/* comment */}
                 <div className="w-full lg:w-[55%] p-4 text-gray-600">
                     <h2 className="text-2xl font-bold my-6">Featured Post</h2>
                     <div className="w-full border p-6 rounded-lg">

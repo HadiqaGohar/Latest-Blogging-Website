@@ -23,6 +23,7 @@ function Footer() {
 
           {/* Navigation Links */}
           <nav>
+             {/* comment */}
             <ul className="flex flex-col md:flex-row gap-6 text-lg text-center">
               <li>
                 <Link href="/" aria-label="Home">

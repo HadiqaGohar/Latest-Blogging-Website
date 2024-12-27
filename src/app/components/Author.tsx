@@ -5,6 +5,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { client } from '../../sanity/lib/client'; // Assuming your sanity client is set up
 
 // Define types for author and socialLinks
+ {/* comment */}
 type SocialLink = {
   platform: string;
   url: string;
