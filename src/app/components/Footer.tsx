@@ -1,15 +1,46 @@
-import React from 'react';
-import {
-  FaBlog,
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaGithub,
-  FaTwitter,
-} from 'react-icons/fa';
+// components/Footer.js
+'use client';
+import React, { useState } from 'react';
+import { FaBlog, FaFacebook, FaInstagram, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
+import { client } from '../../sanity/lib/client';
 
 function Footer() {
+  const [email, setEmail] = useState('');
+  const [subscribersCount, setSubscribersCount] = useState(0);
+  const [message, setMessage] = useState('');
+
+  const handleSubscribe = async () => {
+    if (!email) {
+      setMessage('Please enter a valid email.');
+      return;
+    }
+
+    try {
+      console.log('Adding email:', email);
+
+      // Add email to Sanity
+      const response = await client.create({
+        _type: 'subscriber',
+        email,
+      });
+      console.log('Email added:', response);
+
+      // Fetch updated subscriber count
+      const count = await client.fetch(
+        `count(*[_type == "subscriber" && !(_id in path("drafts.**"))])`
+      );
+      console.log('Fetched subscriber count:', count);
+
+      setSubscribersCount(count);
+      setMessage('Subscription successful!');
+      setEmail('');
+    } catch (error) {
+      console.error('Subscription failed:', error);
+      setMessage('Something went wrong. Please try again.');
+    }
+  };
+
   return (
     <footer className="bg-black font-sans text-white py-10">
       {/* Logo and Navigation */}
@@ -23,7 +54,6 @@ function Footer() {
 
           {/* Navigation Links */}
           <nav>
-             {/* comment */}
             <ul className="flex flex-col md:flex-row gap-6 text-lg text-center">
               <li>
                 <Link href="/" aria-label="Home">
@@ -50,27 +80,39 @@ function Footer() {
         </div>
       </div>
 
-      {/* Subscription Section */}
       <div className="max-w-screen-xl mx-auto px-6 mt-12">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6 text-center lg:text-left">
           <h2 className="text-xl font-bold">
             Subscribe to our newsletter to get <br /> the latest updates and news
           </h2>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-            <input
-              type="email"
-              placeholder="Enter Your Email"
-              className="w-full md:w-auto px-4 py-3 text-white bg-gray-900 rounded-md focus:outline-none"
-              aria-label="Enter your email address"
-            />
-            <button
-              className="bg-[#00e785] text-black px-6 py-3 rounded-lg hover:bg-[#00c66d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00e785] transition duration-300"
-              aria-label="Subscribe to newsletter"
-            >
-              Subscribe
-            </button>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <div>
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full md:w-auto px-4 py-3 text-white bg-gray-900 rounded-md focus:outline-none"
+                aria-label="Enter your email address"
+              />
+              <button
+                onClick={handleSubscribe}
+                className="bg-[#00e785] text-black px-6 py-3 rounded-lg hover:bg-[#00c66d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00e785] transition duration-300"
+                aria-label="Subscribe to newsletter"
+              >
+                Subscribe
+              </button>
+            </div>
+            {message && <p className="mt-1 text-center text-sm">{message}</p>}
+
+            <div className="mt-0 text-center text-gray-500">
+              Total Subscribers: <span className="font-bold">{subscribersCount}</span>
+            </div>
           </div>
+
         </div>
+
+
       </div>
 
       {/* Footer Bottom */}

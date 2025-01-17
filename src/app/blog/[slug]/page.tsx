@@ -22,6 +22,7 @@ interface Post {
 }
 
 async function fetchPostData(slug: string) {
+
   const postQuery = `*[_type == "post" && slug.current == $slug]{
     _id,
     title,

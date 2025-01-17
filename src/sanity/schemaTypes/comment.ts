@@ -1,22 +1,33 @@
-const commentSchema = {
+export default {
   name: 'comment',
   title: 'Comment',
   type: 'document',
   fields: [
     {
+      name: 'author',
+      title: 'Author',
+      type: 'string',
+    },
+    {
       name: 'content',
       title: 'Content',
-      type: 'string',
+      type: 'text',
+    },
+    {
+      name: 'post',
+      title: 'Post',
+      type: 'reference',
+      to: [{ type: 'post' }], // Reference to a "post" document
     },
     {
       name: 'date',
       title: 'Date',
-      type: 'string',
-    },
-    {
-      name: 'author',
-      title: 'Author',
-      type: 'string',
+      type: 'datetime',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: 'HH:mm',
+        calendarTodayLabel: 'Today',
+      },
     },
     {
       name: 'likeCount',
@@ -25,17 +36,12 @@ const commentSchema = {
       initialValue: 0,
     },
     {
-      name: 'image',
-      title: 'Image',
+      name: 'authorImage',
+      title: 'Author Image',
       type: 'image',
-    },
-    {
-      name: 'post',
-      title: 'Post',
-      type: 'reference',
-      to: [{ type: 'post' }],
+      options: {
+        hotspot: true,
+      },
     },
   ],
 };
-
-export default commentSchema;
