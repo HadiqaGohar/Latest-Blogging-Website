@@ -1,4 +1,3 @@
-// components/Footer.js
 'use client';
 import React, { useState } from 'react';
 import { FaBlog, FaFacebook, FaInstagram, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
@@ -25,6 +24,9 @@ function Footer() {
         email,
       });
       console.log('Email added:', response);
+
+      // Optimistically update subscriber count before fetching
+      setSubscribersCount((prevCount) => prevCount + 1); // Increment the count immediately for better UX
 
       // Fetch updated subscriber count
       const count = await client.fetch(
@@ -111,7 +113,6 @@ function Footer() {
           </div>
 
         </div>
-
 
       </div>
 
